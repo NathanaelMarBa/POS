@@ -234,7 +234,7 @@ public class PurchasesController implements KeyListener, ActionListener, MouseLi
                 JOptionPane.showMessageDialog(null, "No tiene permisos para acceder a esta sección");
             }
         } else if (e.getSource() == views.jLabelReports) {
-            views.jTabbedMenu.setSelectedIndex(7);
+            views.jTabbedMenu.setSelectedIndex(6);
             cleanTable();
             listAllPurchases();
         }

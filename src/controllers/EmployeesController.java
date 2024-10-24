@@ -194,7 +194,7 @@ public class EmployeesController implements ActionListener, MouseListener, KeyLi
             views.btn_register_employee.setEnabled(false);
         } else if (e.getSource() == views.jLabelEmployees) {
             if (rol.equals("Administrador")) {
-                views.jTabbedMenu.setSelectedIndex(4);
+                views.jTabbedMenu.setSelectedIndex(3);
                 cleanTable();
                 clearFields();
                 listAllEmployees();
@@ -204,7 +204,7 @@ public class EmployeesController implements ActionListener, MouseListener, KeyLi
                 JOptionPane.showMessageDialog(null, "No tienes permisos para acceder a esta sección");
             }
         }else if (e.getSource() == views.jLabelSettings){
-            views.jTabbedMenu.setSelectedIndex(8);
+            views.jTabbedMenu.setSelectedIndex(7);
         }
     }
 

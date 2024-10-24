@@ -133,7 +133,7 @@ public class CategoriesController implements ActionListener, MouseListener, KeyL
             views.btn_register_category.setEnabled(false);
         }else if(e.getSource() == views.jLabelCategories){
             if (rol.equals("Administrador")) {
-                views.jTabbedMenu.setSelectedIndex(6);
+                views.jTabbedMenu.setSelectedIndex(5);
                 cleanTable();
                 cleanFields();
                 listAllCategories();

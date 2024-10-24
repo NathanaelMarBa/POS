@@ -149,7 +149,7 @@ public class SupplierController implements ActionListener, MouseListener, KeyLis
             views.txt_supplier_id.setEditable(false);
         }else if (e.getSource() == views.jLabelSuppliers){
             if (rol.equals("Administrador")) {
-                views.jTabbedMenu.setSelectedIndex(5);
+                views.jTabbedMenu.setSelectedIndex(4);
                 cleanTable();
                 cleanFields();
                 listAllSuppliers();
