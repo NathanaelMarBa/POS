@@ -204,7 +204,7 @@ public class EmployeesController implements ActionListener, MouseListener, KeyLi
                 JOptionPane.showMessageDialog(null, "No tienes permisos para acceder a esta sección");
             }
         }else if (e.getSource() == views.jLabelSettings){
-            views.jTabbedMenu.setSelectedIndex(7);
+            views.jTabbedMenu.setSelectedIndex(6);
         }
     }
 

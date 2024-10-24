@@ -43,56 +43,42 @@ public class PurchasesController implements KeyListener, ActionListener, MouseLi
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == views.btn_add_product_to_buy) {
-            DynamicCombobox supplier_cmb = (DynamicCombobox) views.cmb_purchase_supplier.getSelectedItem();
-            int supplier_id = supplier_cmb.getId();
 
-            if (getIdSuplier == 0) {
-                getIdSuplier = supplier_id;
-            }else{
-                if (getIdSuplier != supplier_id) {
-                    JOptionPane.showMessageDialog(null, "No puede agregar productos de diferentes proveedores");
-                }else{
-                    int amount = Integer.parseInt(views.txt_purchase_amount.getText());
-                    String product_name = views.txt_purchase_product_name.getText();
-                    double price = Double.parseDouble(views.txt_purchase_price.getText());
-                    int purchase_id = Integer.parseInt(views.txt_purchase_id.getText());
-                    String supplier_name = views.cmb_purchase_supplier.getSelectedItem().toString();
+        int amount = Integer.parseInt(views.txt_purchase_amount.getText());
+        String product_name = views.txt_purchase_product_name.getText();
+        double price = Double.parseDouble(views.txt_purchase_price.getText());
+        int purchase_id = Integer.parseInt(views.txt_purchase_id.getText());
 
-                    if (amount > 0) {
-                        temp = (DefaultTableModel) views.purchases_table.getModel();
-                        for (int i = 0; i < views.purchases_table.getRowCount(); i++) {
-                            if (views.purchases_table.getValueAt(i, 1).equals(views.txt_purchase_product_name.getText())) {
-                                JOptionPane.showMessageDialog(null, "El producto ya se encuentra en la lista");
-                                return;
-                            }
+                if (amount > 0) {
+                    temp = (DefaultTableModel) views.purchases_table.getModel();
+                    for (int i = 0; i < views.purchases_table.getRowCount(); i++) {
+                        if (views.purchases_table.getValueAt(i, 1).equals(views.txt_purchase_product_name.getText())) {
+                            JOptionPane.showMessageDialog(null, "El producto ya se encuentra en la lista");
+                            return;
                         }
-
-                        ArrayList list = new ArrayList();
-                        item = 1;
-                        list.add(item);
-                        list.add(purchase_id);
-                        list.add(product_name);
-                        list.add(amount);
-                        list.add(price);
-                        list.add(amount * price);
-                        list.add(supplier_name);
-
-                        Object [] obj = new Object[6];
-                        obj[0] = list.get(1);
-                        obj[1] = list.get(2);
-                        obj[2] = list.get(3);
-                        obj[3] = list.get(4);
-                        obj[4] = list.get(5);
-                        obj[5] = list.get(6);
-                        temp.addRow(obj);
-                        views.purchases_table.setModel(temp);
-                        cleanFieldsPurchases();
-                        views.cmb_purchase_supplier.setEditable(false);
-                        views.txt_purchase_product_code.requestFocus();
-                        calculatePurchase();
                     }
+
+                    ArrayList list = new ArrayList();
+                    item = 1;
+                    list.add(item);
+                    list.add(purchase_id);
+                    list.add(product_name);
+                    list.add(amount);
+                    list.add(price);
+                    list.add(amount * price);
+
+                    Object [] obj = new Object[5];
+                    obj[0] = list.get(1);
+                    obj[1] = list.get(2);
+                    obj[2] = list.get(3);
+                    obj[3] = list.get(4);
+                    obj[4] = list.get(5);
+                    temp.addRow(obj);
+                    views.purchases_table.setModel(temp);
+                    cleanFieldsPurchases();
+                    views.txt_purchase_product_code.requestFocus();
+                    calculatePurchase();
                 }
-            }
         } else if (e.getSource() == views.btn_confirm_purchase) {
             insertPurchase();
         } else if (e.getSource() == views.btn_remove_purchase) {
@@ -110,7 +96,7 @@ public class PurchasesController implements KeyListener, ActionListener, MouseLi
         double total = Double.parseDouble(views.txt_purchase_total_to_pay.getText());
         int employee_id = id_user;
 
-        if (purchaseDao.registerPurchaseQuery(getIdSuplier, employee_id, total)){
+        if (purchaseDao.registerPurchaseQuery(employee_id, total)){
             int purchase_id = purchaseDao.getPurchaseId();
 
             for (int i = 0; i < views.purchases_table.getRowCount(); i++) {
@@ -234,7 +220,7 @@ public class PurchasesController implements KeyListener, ActionListener, MouseLi
                 JOptionPane.showMessageDialog(null, "No tiene permisos para acceder a esta sección");
             }
         } else if (e.getSource() == views.jLabelReports) {
-            views.jTabbedMenu.setSelectedIndex(6);
+            views.jTabbedMenu.setSelectedIndex(5);
             cleanTable();
             listAllPurchases();
         }

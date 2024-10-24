@@ -133,12 +133,12 @@ public class CategoriesController implements ActionListener, MouseListener, KeyL
             views.btn_register_category.setEnabled(false);
         }else if(e.getSource() == views.jLabelCategories){
             if (rol.equals("Administrador")) {
-                views.jTabbedMenu.setSelectedIndex(5);
+                views.jTabbedMenu.setSelectedIndex(4);
                 cleanTable();
                 cleanFields();
                 listAllCategories();
             }else {
-                views.jTabbedMenu.setEnabledAt(6, false);
+                views.jTabbedMenu.setEnabledAt(4, false);
                 views.jLabelCategories.setEnabled(false);
                 JOptionPane.showMessageDialog(null, "No tienes permisos para acceder a esta seccion");
             }

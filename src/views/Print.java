@@ -40,15 +40,14 @@ public class Print extends javax.swing.JFrame {
     public void listAllPurchasesDetails(int id) {
         List<Purchases> list = purchaseDao.listAllPurchaseDetailQuery(id);
         model = (DefaultTableModel) purchase_details_table.getModel();
-        Object[] row = new Object[7];
+        Object[] row = new Object[6];
         for (int i = 0; i < list.size(); i++) {
             row[0] = list.get(i).getProduct_name();
             row[1] = list.get(i).getPurchase_amount();
             row[2] = list.get(i).getPurchase_price();
             row[3] = list.get(i).getPurchase_subtotal();
-            row[4] = list.get(i).getSupplier_name_product();
-            row[5] = list.get(i).getPurcharser();
-            row[6] = list.get(i).getCreated();
+            row[4] = list.get(i).getPurcharser();
+            row[5] = list.get(i).getCreated();
             model.addRow(row);
         }
         purchase_details_table.setModel(model);
@@ -123,11 +122,11 @@ public class Print extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Producto", "Cantidad", "Precio", "Subtotal", "Proveedor", "Comprado por", "Fecha"
+                "Producto", "Cantidad", "Precio", "Subtotal", "Comprado por", "Fecha"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, true, false
+                false, false, false, false, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -137,8 +136,8 @@ public class Print extends javax.swing.JFrame {
         jScrollPane1.setViewportView(purchase_details_table);
         if (purchase_details_table.getColumnModel().getColumnCount() > 0) {
             purchase_details_table.getColumnModel().getColumn(0).setMinWidth(100);
-            purchase_details_table.getColumnModel().getColumn(5).setMinWidth(110);
-            purchase_details_table.getColumnModel().getColumn(6).setMinWidth(80);
+            purchase_details_table.getColumnModel().getColumn(4).setMinWidth(110);
+            purchase_details_table.getColumnModel().getColumn(5).setMinWidth(80);
         }
 
         form_print.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 620, 230));

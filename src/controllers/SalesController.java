@@ -210,10 +210,11 @@ public class SalesController implements ActionListener, MouseListener, KeyListen
             views.jTabbedMenu.setSelectedIndex(2);
         }else if (e.getSource() == views.jLabelReports) {
             if (rol.equals("Administrador")) {
-                views.jTabbedMenu.setSelectedIndex(7);
+                views.jTabbedMenu.setSelectedIndex(5);
+                cleanTable();
                 listAllSales();
             } else {
-                views.jTabbedMenu.setEnabledAt(7, false);
+                views.jTabbedMenu.setEnabledAt(5, false);
                 views.jLabelReports.setEnabled(false);
                 JOptionPane.showMessageDialog(null, "No tiene privilegios de administrador para acceder a esta vista");
             }
