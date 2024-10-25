@@ -26,14 +26,11 @@ CREATE TABLE `sales` (
   `id` int NOT NULL AUTO_INCREMENT,
   `sale_date` datetime DEFAULT NULL,
   `total` double DEFAULT NULL,
-  `customer_id` int DEFAULT NULL,
   `employee_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `customer_id_idx` (`customer_id`),
   KEY `sales_employees_idx` (`employee_id`),
-  CONSTRAINT `sale-customer` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`),
   CONSTRAINT `sale-employee` FOREIGN KEY (`employee_id`) REFERENCES `employees` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,6 +39,7 @@ CREATE TABLE `sales` (
 
 LOCK TABLES `sales` WRITE;
 /*!40000 ALTER TABLE `sales` DISABLE KEYS */;
+INSERT INTO `sales` VALUES (7,'2024-10-24 18:13:25',70,1),(8,'2024-10-24 18:18:27',30,1),(9,'2024-10-24 18:27:50',40,1),(10,'2024-10-24 18:28:18',30,1),(11,'2024-10-24 18:28:25',30,1),(12,'2024-10-24 18:28:38',30,1),(13,'2024-10-24 18:37:06',20,2),(14,'2024-10-24 23:07:00',30,1);
 /*!40000 ALTER TABLE `sales` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-21 12:53:00
+-- Dump completed on 2024-10-24 23:11:48

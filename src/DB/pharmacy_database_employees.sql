@@ -43,7 +43,7 @@ CREATE TABLE `employees` (
 
 LOCK TABLES `employees` WRITE;
 /*!40000 ALTER TABLE `employees` DISABLE KEYS */;
-INSERT INTO `employees` VALUES (3,'Nathanael Martinez','Natha','Tecamac','5674356824','natha@gmail.com','root','Administrador','2024-10-16 15:08:04','2024-10-17 11:48:54'),(4,'Isaac De Leon','Isaac','Tizayuca','5574732084','isaac@gmail.com','password','Auxiliar','2024-10-17 12:26:21','2024-10-17 14:09:35');
+INSERT INTO `employees` VALUES (1,'Admin','Admin',NULL,NULL,NULL,'Admin','Administrador',NULL,NULL),(2,'Emiliano Ramirez','Emi','Ecatepec','5574834982','Emi@gmail.com','1234','Auxiliar','2024-10-24 18:14:36','2024-10-24 18:14:36');
 /*!40000 ALTER TABLE `employees` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-21 12:53:00
+-- Dump completed on 2024-10-24 23:11:48

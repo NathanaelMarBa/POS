@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `sale_details`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `sale_details` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `sale_quantity` int DEFAULT NULL,
   `sale_price` double DEFAULT NULL,
   `sale_subtotal` double DEFAULT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE `sale_details` (
   KEY `sale_detail_sale_idx` (`sale_id`),
   CONSTRAINT `sale-sale_details` FOREIGN KEY (`sale_id`) REFERENCES `sales` (`id`),
   CONSTRAINT `sale_detaisl-product` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,6 +43,7 @@ CREATE TABLE `sale_details` (
 
 LOCK TABLES `sale_details` WRITE;
 /*!40000 ALTER TABLE `sale_details` DISABLE KEYS */;
+INSERT INTO `sale_details` VALUES (6,2,20,40,13,7),(7,1,30,30,14,7),(8,1,30,30,14,8),(9,2,20,40,13,9),(10,1,30,30,14,10),(11,1,30,30,14,11),(12,1,30,30,14,12),(13,1,20,20,13,13),(14,1,30,30,13,14);
 /*!40000 ALTER TABLE `sale_details` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-21 12:53:00
+-- Dump completed on 2024-10-24 23:11:48

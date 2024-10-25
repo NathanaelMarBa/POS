@@ -34,7 +34,7 @@ CREATE TABLE `purchase_details` (
   KEY `product_purchase_detail_idx` (`product_id`),
   CONSTRAINT `product_purchase_detail` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
   CONSTRAINT `purchase_purchase_detail` FOREIGN KEY (`purchase_id`) REFERENCES `purchases` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,6 +43,7 @@ CREATE TABLE `purchase_details` (
 
 LOCK TABLES `purchase_details` WRITE;
 /*!40000 ALTER TABLE `purchase_details` DISABLE KEYS */;
+INSERT INTO `purchase_details` VALUES (37,30,10,300,26,13),(38,10,5,50,26,14),(39,100,100,10000,27,13);
 /*!40000 ALTER TABLE `purchase_details` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-21 12:53:01
+-- Dump completed on 2024-10-24 23:11:48

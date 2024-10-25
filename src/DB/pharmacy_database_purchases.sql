@@ -26,14 +26,11 @@ CREATE TABLE `purchases` (
   `id` int NOT NULL AUTO_INCREMENT,
   `total` double DEFAULT NULL,
   `created` datetime DEFAULT NULL,
-  `supplier_id` int DEFAULT NULL,
-  `employe_id` int DEFAULT NULL,
+  `employee_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `purchase_supplier_idx` (`supplier_id`),
-  KEY `purchase_employee_idx` (`employe_id`),
-  CONSTRAINT `purchase_employee` FOREIGN KEY (`employe_id`) REFERENCES `employees` (`id`),
-  CONSTRAINT `purchase_supplier` FOREIGN KEY (`supplier_id`) REFERENCES `suppliers` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `purchase_employee_idx` (`employee_id`),
+  CONSTRAINT `purchase_employee` FOREIGN KEY (`employee_id`) REFERENCES `employees` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,6 +39,7 @@ CREATE TABLE `purchases` (
 
 LOCK TABLES `purchases` WRITE;
 /*!40000 ALTER TABLE `purchases` DISABLE KEYS */;
+INSERT INTO `purchases` VALUES (26,350,'2024-10-24 18:12:41',1),(27,10000,'2024-10-24 23:05:47',1);
 /*!40000 ALTER TABLE `purchases` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-21 12:53:00
+-- Dump completed on 2024-10-24 23:11:48
