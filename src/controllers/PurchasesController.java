@@ -130,9 +130,8 @@ public class PurchasesController implements KeyListener, ActionListener, MouseLi
 
             for (int i = 0; i < list.size(); i++) {
                 row[0] = list.get(i).getId();
-                row[1] = list.get(i).getSupplier_name_product();
-                row[2] = list.get(i).getTotal();
-                row[3] = list.get(i).getCreated();
+                row[1] = list.get(i).getTotal();
+                row[2] = list.get(i).getCreated();
                 model.addRow(row);
             }
             views.table_all_purchases.setModel(model);

@@ -460,7 +460,7 @@ public class SystemView extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Farmacia");
+        jLabel2.setText("Punto De Venta");
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 340, 50));
 
         btn_photo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/man.png"))); // NOI18N
@@ -475,6 +475,7 @@ public class SystemView extends javax.swing.JFrame {
         });
         jPanel3.add(btn_logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 35, -1, 30));
 
+        label_name_employee.setBackground(new java.awt.Color(255, 255, 255));
         label_name_employee.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         label_name_employee.setForeground(new java.awt.Color(255, 255, 255));
         jPanel3.add(label_name_employee, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 40, 150, 20));
@@ -1256,8 +1257,8 @@ public class SystemView extends javax.swing.JFrame {
 
         jLabel42.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel42.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel42.setText("Compras Realizadas");
-        jPanel11.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 280, -1, -1));
+        jLabel42.setText("Stock Surtido");
+        jPanel11.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, -1, -1));
 
         table_all_purchases.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1281,8 +1282,8 @@ public class SystemView extends javax.swing.JFrame {
 
         jLabel60.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel60.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel60.setText("Stock Surtido");
-        jPanel11.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 30, -1, -1));
+        jLabel60.setText("Ventas Realizadas");
+        jPanel11.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, -1, -1));
 
         table_all_sales.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

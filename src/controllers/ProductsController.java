@@ -30,6 +30,7 @@ public class ProductsController implements ActionListener, MouseListener, KeyLis
         this.views.btn_delete_product.addActionListener(this);
         this.views.btn_cancel_product.addActionListener(this);
         this.views.jLabelProducts.addMouseListener(this);
+        this.views.cmb_product_category.addMouseListener(this);
     }
 
     @Override
@@ -152,6 +153,8 @@ public class ProductsController implements ActionListener, MouseListener, KeyLis
             views.jTabbedMenu.setSelectedIndex(0);
             cleanTable();
             cleanFields();
+            cleanCombobox();
+            listAllCategories();
             listAllProducts();
         }
     }
@@ -207,5 +210,18 @@ public class ProductsController implements ActionListener, MouseListener, KeyLis
         views.txt_product_name.setText("");
         views.txt_product_description.setText("");
         views.txt_product_unit_price.setText("");
+    }
+
+    //Listar categorias en combobox
+    public void listAllCategories(){
+        List<DynamicCombobox> list = productDao.listCategoriesQuery();
+        for (int i = 0; i < list.size(); i++) {
+            views.cmb_product_category.addItem(new DynamicCombobox(list.get(i).getId(), list.get(i).getName()));
+        }
+    }
+
+    //Limpiar combobox
+    public void cleanCombobox(){
+        views.cmb_product_category.removeAllItems();
     }
 }

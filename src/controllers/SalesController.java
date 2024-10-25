@@ -31,13 +31,13 @@ public class SalesController implements ActionListener, MouseListener, KeyListen
         this.saleDao = saleDao;
         this.views = views;
         this.views.jLabelSales.addMouseListener(this);
+        this.views.jLabelReports.addMouseListener(this);
         this.views.btn_confirm_sale.addActionListener(this);
         this.views.btn_new_sale.addActionListener(this);
         this.views.btn_remove_sale.addActionListener(this);
         this.views.btn_add_product_sale.addActionListener(this);
         this.views.txt_sale_product_code.addKeyListener(this);
         this.views.txt_sale_quantity.addKeyListener(this);
-        listAllSales();
     }
 
     @Override
@@ -162,7 +162,7 @@ public class SalesController implements ActionListener, MouseListener, KeyListen
 
     public void listAllSales() {
 
-        if (rol.equals("Administrador")) {
+        if (rol.equals("Administrador") || rol.equals("Auxiliar")) {
             List<Sales> list = saleDao.listAllSalesQuery();
             model = (DefaultTableModel) views.table_all_sales.getModel();
 
@@ -209,15 +209,9 @@ public class SalesController implements ActionListener, MouseListener, KeyListen
         if (e.getSource() == views.jLabelSales) {
             views.jTabbedMenu.setSelectedIndex(2);
         }else if (e.getSource() == views.jLabelReports) {
-            if (rol.equals("Administrador")) {
-                views.jTabbedMenu.setSelectedIndex(5);
-                cleanTable();
-                listAllSales();
-            } else {
-                views.jTabbedMenu.setEnabledAt(5, false);
-                views.jLabelReports.setEnabled(false);
-                JOptionPane.showMessageDialog(null, "No tiene privilegios de administrador para acceder a esta vista");
-            }
+            views.jTabbedMenu.setSelectedIndex(5);
+            cleanTable();
+            listAllSales();
         }
     }
 

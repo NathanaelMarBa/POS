@@ -182,4 +182,22 @@ public class ProductsDao {
             return false;
         }
     }
+
+    //listCategoriesQuery
+    public List listCategoriesQuery(){
+        List<DynamicCombobox> list_categories = new ArrayList();
+        String query = "SELECT * FROM categories";
+        try {
+            conn = cn.getConnection();
+            pst = conn.prepareStatement(query);
+            rs = pst.executeQuery();
+            while(rs.next()){
+                DynamicCombobox category = new DynamicCombobox(rs.getInt("id"), rs.getString("name"));
+                list_categories.add(category);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null,"Error al listar las categorias " + e);
+        }
+        return list_categories;
+    }
 }
