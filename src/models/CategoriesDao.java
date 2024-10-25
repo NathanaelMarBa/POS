@@ -70,7 +70,7 @@ public class CategoriesDao {
             pst.execute();
             return true;
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null,"Error al actualizar la categoria " + e);
+            JOptionPane.showMessageDialog(null,"No puedes cambiar el nombre de una categoria que cuenta con productor");
             return false;
         }
     }
@@ -85,7 +85,7 @@ public class CategoriesDao {
             pst.execute();
             return true;
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null,"Error al eliminar la categoria " + e);
+            JOptionPane.showMessageDialog(null,"No puedes eliminar una categoria que tiene productos");
             return false;
         }
     }
